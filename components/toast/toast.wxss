@@ -1,0 +1,27 @@
+.toast-wrap {
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  z-index: 1000;
+  pointer-events: none;
+}
+
+.toast {
+  padding: var(--space-md) var(--space-xl);
+  border-radius: var(--radius-md);
+  font-size: 28rpx;
+  color: #FFFFFF;
+  background: rgba(0, 0, 0, 0.75);
+  max-width: 560rpx;
+  text-align: center;
+  line-height: 1.4;
+}
+
+.toast-success {
+  background: rgba(22, 163, 74, 0.9);
+}
+
+.toast-error {
+  background: rgba(220, 38, 38, 0.9);
+}

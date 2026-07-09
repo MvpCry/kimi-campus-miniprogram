@@ -1,0 +1,41 @@
+<view class="page zone-page">
+  <view class="zone-header">
+    <view class="zone-title">以物换物</view>
+    <view class="zone-desc">用你闲置的物品，换你需要的物品</view>
+  </view>
+
+  <view class="filter-section">
+    <filter-bar
+      filters="{{filters}}"
+      options="{{filterOptions}}"
+      sticky
+      bindchange="onFilterChange"
+      bindreset="onFilterReset"
+    />
+  </view>
+
+  <view class="post-section">
+    <view class="post-list" wx:if="{{posts.length > 0}}">
+      <post-card
+        wx:for="{{posts}}"
+        wx:key="id"
+        post="{{item}}"
+        show-type-tag
+        bindtap="onPostTap"
+      />
+
+      <view class="load-more">
+        <text wx:if="{{loading}}">加载中...</text>
+        <text wx:elif="{{hasMore}}">上拉加载更多</text>
+        <text wx:else>已经到底啦</text>
+      </view>
+    </view>
+
+    <empty-state
+      wx:else
+      icon="search"
+      title="暂无换物帖子"
+      description="去发布一条以物换物吧"
+    />
+  </view>
+</view>

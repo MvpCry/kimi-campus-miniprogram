@@ -1,0 +1,22 @@
+<view class="category-nav category-nav--{{theme}} {{scrollable ? 'is-scrollable' : ''}}">
+  <scroll-view
+    class="category-scroll"
+    scroll-x="{{scrollable}}"
+    scroll-with-animation
+    enable-flex
+    enhanced
+    show-scrollbar="{{false}}"
+  >
+    <view
+      class="category-item {{item.active ? 'is-active' : ''}}"
+      wx:for="{{items}}"
+      wx:key="id"
+      data-index="{{index}}"
+      bindtap="onTap"
+      id="cat-{{item.id}}"
+    >
+      <view class="category-icon" wx:if="{{showIcon && item.iconText}}">{{item.iconText}}</view>
+      <text class="category-name">{{item.name}}</text>
+    </view>
+  </scroll-view>
+</view>

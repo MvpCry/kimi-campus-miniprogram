@@ -1,0 +1,148 @@
+.filter-bar {
+  position: relative;
+  background: #FFFFFF;
+  z-index: 100;
+}
+
+.filter-bar.is-sticky {
+  position: sticky;
+  top: 0;
+}
+
+.filter-bar__inner {
+  display: flex;
+  align-items: center;
+  padding: var(--space-sm) var(--space-md);
+  border-bottom: 2rpx solid var(--color-border);
+}
+
+.filter-bar__item {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 64rpx;
+  padding: 0 var(--space-md);
+  margin-right: var(--space-sm);
+  border-radius: 32rpx;
+  background: var(--color-muted);
+  color: #64748B;
+  font-size: 26rpx;
+  transition: all 150ms ease;
+}
+
+.filter-bar__item.is-active {
+  background: var(--color-primary);
+  color: var(--color-on-primary);
+}
+
+.filter-bar__item:active {
+  opacity: 0.85;
+}
+
+.filter-bar__label {
+  margin-right: 6rpx;
+}
+
+.filter-bar__arrow {
+  width: 0;
+  height: 0;
+  border-left: 6rpx solid transparent;
+  border-right: 6rpx solid transparent;
+  border-top: 6rpx solid currentColor;
+  transition: transform 150ms ease;
+}
+
+.filter-bar__item.is-active .filter-bar__arrow {
+  transform: rotate(180deg);
+}
+
+.filter-bar__reset {
+  margin-left: auto;
+  font-size: 26rpx;
+  color: var(--color-primary);
+  padding: var(--space-sm) var(--space-md);
+}
+
+.filter-bar__reset:active {
+  opacity: 0.7;
+}
+
+/* Panel */
+.filter-panel {
+  position: absolute;
+  top: 100%;
+  left: 0;
+  right: 0;
+}
+
+.filter-panel__mask {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: rgba(0, 0, 0, 0.25);
+  z-index: 99;
+}
+
+.filter-panel__content {
+  position: relative;
+  background: #FFFFFF;
+  padding: var(--space-md);
+  z-index: 101;
+  box-shadow: var(--shadow-md);
+}
+
+.filter-options {
+  display: flex;
+  flex-wrap: wrap;
+  gap: var(--space-md);
+}
+
+.filter-option {
+  padding: var(--space-sm) var(--space-md);
+  border-radius: 32rpx;
+  background: var(--color-muted);
+  color: #64748B;
+  font-size: 26rpx;
+  transition: all 150ms ease;
+}
+
+.filter-option.is-active {
+  background: var(--color-primary);
+  color: var(--color-on-primary);
+}
+
+.filter-option:active {
+  opacity: 0.85;
+}
+
+.filter-price__inputs {
+  display: flex;
+  align-items: center;
+  gap: var(--space-md);
+  margin-bottom: var(--space-md);
+}
+
+.filter-price__input {
+  flex: 1;
+  height: 80rpx;
+  padding: 0 var(--space-md);
+  border: 2rpx solid var(--color-border);
+  border-radius: var(--radius-md);
+  font-size: 28rpx;
+  text-align: center;
+}
+
+.filter-price__input:focus {
+  border-color: var(--color-primary);
+}
+
+.filter-price__sep {
+  color: #94A3B8;
+  font-size: 28rpx;
+}
+
+.filter-price__btn {
+  width: 100%;
+}

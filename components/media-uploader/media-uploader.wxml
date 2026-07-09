@@ -1,0 +1,41 @@
+<view class="media-uploader">
+  <view class="media-list">
+    <view
+      class="media-item"
+      wx:for="{{internalFiles}}"
+      wx:key="id"
+      data-index="{{index}}"
+      bindtap="previewMedia"
+    >
+      <image
+        class="media-thumb {{item.type === 'video' ? 'is-video' : ''}}"
+        src="{{item.thumb || item.url}}"
+        mode="aspectFill"
+        lazy-load
+      />
+
+      <view class="media-badge media-badge--cover" wx:if="{{index === 0}}">封面</view>
+
+      <view class="media-badge media-badge--type" wx:if="{{item.type === 'video'}}">
+        <view class="video-icon"></view>
+      </view>
+
+      <view class="media-delete" catchtap="deleteFile" data-index="{{index}}">
+        <view class="delete-icon"></view>
+      </view>
+
+      <view class="media-status" wx:if="{{item.status === 'uploading'}}">
+        <view class="upload-spinner"></view>
+      </view>
+
+      <view class="media-status media-status--error" wx:if="{{item.status === 'error'}}">上传失败</view>
+    </view>
+
+    <view class="media-add" bindtap="chooseMedia" wx:if="{{canAdd}}">
+      <view class="add-icon"></view>
+      <text class="add-text">{{accept === 'video' ? '上传视频' : '上传图片'}}</text>
+    </view>
+  </view>
+
+  <view class="media-tip" wx:if="{{maxCount > 1}}">最多上传 {{maxCount}} 张，首张为封面</view>
+</view>

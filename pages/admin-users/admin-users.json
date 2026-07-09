@@ -1,0 +1,8 @@
+{
+  "usingComponents": {
+    "empty-state": "/components/empty-state/empty-state"
+  },
+  "navigationBarTitleText": "用户管理",
+  "enablePullDownRefresh": true,
+  "backgroundColor": "#FAF5FF"
+}

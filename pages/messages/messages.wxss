@@ -1,0 +1,72 @@
+.messages-page {
+  min-height: 100vh;
+  padding-bottom: var(--space-3xl);
+}
+
+.conversation-list {
+  padding: 0 var(--space-md);
+}
+
+.conversation-item {
+  display: flex;
+  align-items: center;
+  gap: var(--space-md);
+  padding: var(--space-lg) 0;
+  border-bottom: 2rpx solid var(--color-border);
+}
+
+.conversation-item:active {
+  opacity: 0.7;
+}
+
+.conversation-avatar {
+  width: 96rpx;
+  height: 96rpx;
+  flex-shrink: 0;
+}
+
+.conversation-body {
+  flex: 1;
+  min-width: 0;
+}
+
+.conversation-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: var(--space-sm);
+}
+
+.conversation-name {
+  font-size: 30rpx;
+  font-weight: 600;
+  color: #1F2937;
+}
+
+.conversation-time {
+  font-size: 22rpx;
+  color: #94A3B8;
+  flex-shrink: 0;
+}
+
+.conversation-preview {
+  font-size: 26rpx;
+  color: #64748B;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+.conversation-badge {
+  min-width: 36rpx;
+  height: 36rpx;
+  padding: 0 8rpx;
+  border-radius: 18rpx;
+  background: var(--color-destructive);
+  color: #FFFFFF;
+  font-size: 22rpx;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+}

@@ -1,0 +1,8 @@
+{
+  "usingComponents": {
+    "media-uploader": "/components/media-uploader/media-uploader",
+    "toast": "/components/toast/toast"
+  },
+  "navigationBarTitleText": "发布帖子",
+  "backgroundColor": "#FAF5FF"
+}

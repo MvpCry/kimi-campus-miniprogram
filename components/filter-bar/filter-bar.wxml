@@ -1,0 +1,63 @@
+<view class="filter-bar {{sticky ? 'is-sticky' : ''}}">
+  <view class="filter-bar__inner">
+    <view
+      class="filter-bar__item {{expanded === panel.key ? 'is-active' : ''}}"
+      wx:for="{{panels}}"
+      wx:for-item="panel"
+      wx:key="key"
+      data-key="{{panel.key}}"
+      bindtap="togglePanel"
+    >
+      <text class="filter-bar__label">{{panel.name}}</text>
+      <view class="filter-bar__arrow"></view>
+    </view>
+
+    <view class="filter-bar__reset" bindtap="reset">重置</view>
+  </view>
+
+  <!-- 下拉面板 -->
+  <view class="filter-panel" wx:if="{{expanded}}">
+    <view class="filter-panel__mask" bindtap="closePanel"></view>
+    <view class="filter-panel__content">
+
+      <!-- 普通选项面板 -->
+      <view class="filter-options" wx:if="{{expanded !== 'price'}}">
+        <view
+          class="filter-option {{localFilters[expanded] === item.id ? 'is-active' : ''}}"
+          wx:for="{{options[expanded]}}"
+          wx:key="id"
+          data-id="{{item.id}}"
+          data-key="{{expanded}}"
+          bindtap="selectOption"
+        >
+          {{item.name}}
+        </view>
+      </view>
+
+      <!-- 价格面板 -->
+      <view class="filter-price" wx:if="{{expanded === 'price'}}">
+        <view class="filter-price__inputs">
+          <input
+            class="filter-price__input"
+            type="digit"
+            placeholder="最低价"
+            value="{{localFilters.minPrice}}"
+            data-key="minPrice"
+            bindinput="onPriceInput"
+          />
+          <text class="filter-price__sep">-</text>
+          <input
+            class="filter-price__input"
+            type="digit"
+            placeholder="最高价"
+            value="{{localFilters.maxPrice}}"
+            data-key="maxPrice"
+            bindinput="onPriceInput"
+          />
+        </view>
+        <view class="filter-price__btn btn btn-primary" bindtap="confirmPrice">确定</view>
+      </view>
+
+    </view>
+  </view>
+</view>

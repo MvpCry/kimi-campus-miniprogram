@@ -1,0 +1,7 @@
+[
+  { "id": "urgent", "name": "急出", "color": "#DC2626" },
+  { "id": "negotiable", "name": "可小刀", "color": "#7C3AED" },
+  { "id": "graduation", "name": "毕业清仓", "color": "#16A34A" },
+  { "id": "bargain", "name": "可议价", "color": "#2563EB" },
+  { "id": "casual", "name": "随缘出", "color": "#64748B" }
+]

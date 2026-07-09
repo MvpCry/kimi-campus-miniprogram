@@ -1,0 +1,26 @@
+.category-page {
+  min-height: 100vh;
+  padding-bottom: var(--space-3xl);
+}
+
+.category-nav-section {
+  background: var(--color-background);
+  padding-top: var(--space-sm);
+}
+
+.filter-section {
+  position: sticky;
+  top: 0;
+  z-index: 50;
+}
+
+.post-section {
+  padding: var(--space-md);
+}
+
+.load-more {
+  text-align: center;
+  padding: var(--space-lg) 0;
+  color: #94A3B8;
+  font-size: 24rpx;
+}

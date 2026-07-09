@@ -1,0 +1,23 @@
+<view class="page favorites-page">
+  <view class="post-list" wx:if="{{posts.length > 0}}">
+    <post-card
+      wx:for="{{posts}}"
+      wx:key="id"
+      post="{{item}}"
+      bindtap="onPostTap"
+    />
+
+    <view class="load-more">
+      <text wx:if="{{loading}}">加载中...</text>
+      <text wx:elif="{{hasMore}}">上拉加载更多</text>
+      <text wx:else>已经到底啦</text>
+    </view>
+  </view>
+
+  <empty-state
+    wx:else
+    icon="heart"
+    title="暂无收藏"
+    description="看到喜欢的帖子，点击收藏吧"
+  />
+</view>

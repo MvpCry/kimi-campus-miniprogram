@@ -1,0 +1,37 @@
+.history-page {
+  min-height: 100vh;
+  padding-bottom: var(--space-3xl);
+}
+
+.history-header {
+  display: flex;
+  justify-content: flex-end;
+  padding: var(--space-md);
+}
+
+.clear-btn {
+  font-size: 26rpx;
+  color: var(--color-destructive);
+  padding: var(--space-sm) var(--space-md);
+}
+
+.history-list {
+  padding: 0 var(--space-md);
+}
+
+.history-group {
+  margin-bottom: var(--space-lg);
+}
+
+.history-date {
+  font-size: 26rpx;
+  font-weight: 600;
+  color: #64748B;
+  margin-bottom: var(--space-md);
+}
+
+.post-list {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-md);
+}

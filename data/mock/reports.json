@@ -1,0 +1,26 @@
+[
+  {
+    "id": "r1001",
+    "reporterId": "u1001",
+    "targetType": "post",
+    "targetId": "p1010",
+    "reason": "ad",
+    "detail": "帖子留了外部微信号，疑似校外广告。",
+    "status": "pending",
+    "createdAt": "2026-07-08T11:10:00Z",
+    "handledBy": null,
+    "handledAt": null
+  },
+  {
+    "id": "r1002",
+    "reporterId": "u1002",
+    "targetType": "user",
+    "targetId": "u1004",
+    "reason": "harass",
+    "detail": "私信发送兼职广告，骚扰多次。",
+    "status": "pending",
+    "createdAt": "2026-07-08T10:00:00Z",
+    "handledBy": null,
+    "handledAt": null
+  }
+]

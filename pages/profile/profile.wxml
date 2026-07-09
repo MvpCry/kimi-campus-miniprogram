@@ -1,0 +1,35 @@
+<view class="page profile-page">
+  <view class="user-card">
+    <image
+      class="user-avatar avatar"
+      src="{{user.avatar || '/images/avatar-default.png'}}"
+      bindtap="onAvatarTap"
+    />
+    <view class="user-info">
+      <view class="user-name">
+        {{user.nickname || '未登录'}}
+        <text class="verified-tag" wx:if="{{user.verifiedStatus === 'approved'}}">已认证</text>
+        <text class="verified-tag verified-tag--pending" wx:elif="{{user.verifiedStatus === 'pending'}}">认证中</text>
+      </view>
+      <view class="user-meta">{{user.campus || ''}} {{user.dorm ? '· ' + user.dorm : ''}}</view>
+    </view>
+  </view>
+
+  <view class="menu-group" wx:for="{{menuGroups}}" wx:key="title">
+    <view class="menu-title">{{item.title}}</view>
+    <view class="menu-list">
+      <view
+        class="menu-item"
+        wx:for="{{item.items}}"
+        wx:for-item="menu"
+        wx:key="label"
+        data-url="{{menu.url}}"
+        bindtap="onMenuTap"
+      >
+        <view class="menu-icon menu-icon--{{menu.icon}}"></view>
+        <text class="menu-label">{{menu.label}}</text>
+        <view class="menu-arrow"></view>
+      </view>
+    </view>
+  </view>
+</view>

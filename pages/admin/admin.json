@@ -1,0 +1,7 @@
+{
+  "usingComponents": {
+    "empty-state": "/components/empty-state/empty-state"
+  },
+  "navigationBarTitleText": "后台管理",
+  "backgroundColor": "#FAF5FF"
+}

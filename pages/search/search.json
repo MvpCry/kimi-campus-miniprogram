@@ -1,0 +1,9 @@
+{
+  "usingComponents": {
+    "search-bar": "/components/search-bar/search-bar",
+    "post-card": "/components/post-card/post-card",
+    "empty-state": "/components/empty-state/empty-state"
+  },
+  "navigationBarTitleText": "搜索",
+  "backgroundColor": "#FAF5FF"
+}

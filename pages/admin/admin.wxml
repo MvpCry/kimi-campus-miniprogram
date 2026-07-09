@@ -1,0 +1,41 @@
+<view class="page admin-page" wx:if="{{isAdmin}}">
+  <view class="summary-grid">
+    <view class="summary-card">
+      <text class="summary-number">{{summary.userCount}}</text>
+      <text class="summary-label">用户</text>
+    </view>
+    <view class="summary-card">
+      <text class="summary-number">{{summary.postCount}}</text>
+      <text class="summary-label">帖子</text>
+    </view>
+    <view class="summary-card">
+      <text class="summary-number">{{summary.reportCount}}</text>
+      <text class="summary-label">举报</text>
+    </view>
+    <view class="summary-card">
+      <text class="summary-number">{{summary.pendingReportCount}}</text>
+      <text class="summary-label">待处理</text>
+    </view>
+  </view>
+
+  <view class="admin-menu">
+    <view
+      class="admin-menu__item"
+      wx:for="{{menuItems}}"
+      wx:key="label"
+      data-url="{{item.url}}"
+      bindtap="onMenuTap"
+    >
+      <view class="admin-menu__icon admin-menu__icon--{{item.icon}}"></view>
+      <text class="admin-menu__label">{{item.label}}</text>
+      <view class="admin-menu__arrow"></view>
+    </view>
+  </view>
+</view>
+
+<empty-state
+  wx:else
+  icon="lock"
+  title="无权访问"
+  description="仅管理员可进入后台"
+/>

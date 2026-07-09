@@ -1,0 +1,39 @@
+<view class="page my-posts-page">
+  <view class="type-tabs">
+    <view
+      class="type-tab {{currentType === item.id ? 'is-active' : ''}}"
+      wx:for="{{POST_TYPES}}"
+      wx:key="id"
+      data-type="{{item.id}}"
+      bindtap="switchType"
+    >
+      {{item.name}}
+    </view>
+  </view>
+
+  <view class="post-list" wx:if="{{posts.length > 0}}">
+    <view class="post-item" wx:for="{{posts}}" wx:key="id">
+      <post-card post="{{item}}" bindtap="onPostTap" />
+      <view class="post-actions">
+        <text class="status-badge">{{getStatusText(item.status)}}</text>
+        <view class="action-btns">
+          <view class="action-btn" bindtap="onEditTap" data-post-id="{{item.id}}">编辑</view>
+          <view class="action-btn action-btn--danger" bindtap="onDeleteTap" data-post-id="{{item.id}}">删除</view>
+        </view>
+      </view>
+    </view>
+
+    <view class="load-more">
+      <text wx:if="{{loading}}">加载中...</text>
+      <text wx:elif="{{hasMore}}">上拉加载更多</text>
+      <text wx:else>已经到底啦</text>
+    </view>
+  </view>
+
+  <empty-state
+    wx:else
+    icon="box"
+    title="暂无发布"
+    description="去发布你的第一条帖子吧"
+  />
+</view>

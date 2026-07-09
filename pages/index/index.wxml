@@ -1,0 +1,50 @@
+<view class="page index-page">
+  <view class="search-section">
+    <search-bar
+      placeholder="搜索物品、教材、电动车..."
+      bindtap="onSearchTap"
+      bindfocus="onSearchFocus"
+    />
+  </view>
+
+  <view class="category-section">
+    <view class="section-title">分类浏览</view>
+    <category-nav
+      categories="{{categories}}"
+      theme="card"
+      bindchange="onCategoryChange"
+    />
+  </view>
+
+  <view class="post-section">
+    <view class="section-title">最新发布</view>
+
+    <view class="post-list" wx:if="{{posts.length > 0}}">
+      <post-card
+        wx:for="{{posts}}"
+        wx:key="id"
+        post="{{item}}"
+        bindtap="onPostTap"
+      />
+    </view>
+
+    <empty-state
+      wx:else
+      icon="search"
+      title="还没有帖子"
+      description="去做第一个发布的人吧"
+    />
+
+    <view class="load-more" wx:if="{{posts.length > 0}}">
+      <text wx:if="{{loading}}">加载中...</text>
+      <text wx:elif="{{hasMore}}">上拉加载更多</text>
+      <text wx:else>已经到底啦</text>
+    </view>
+  </view>
+
+  <view class="fab-create" bindtap="onCreateTap">
+    <view class="fab-icon"></view>
+  </view>
+
+  <toast id="toast" />
+</view>

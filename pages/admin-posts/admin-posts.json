@@ -1,0 +1,9 @@
+{
+  "usingComponents": {
+    "post-card": "/components/post-card/post-card",
+    "empty-state": "/components/empty-state/empty-state"
+  },
+  "navigationBarTitleText": "帖子管理",
+  "enablePullDownRefresh": true,
+  "backgroundColor": "#FAF5FF"
+}

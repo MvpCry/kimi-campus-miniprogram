@@ -1,0 +1,79 @@
+.my-posts-page {
+  min-height: 100vh;
+  padding-bottom: var(--space-3xl);
+}
+
+.type-tabs {
+  display: flex;
+  background: #FFFFFF;
+  padding: var(--space-sm) var(--space-md);
+  gap: var(--space-md);
+  border-bottom: 2rpx solid var(--color-border);
+}
+
+.type-tab {
+  flex: 1;
+  height: 64rpx;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: var(--color-muted);
+  color: #64748B;
+  border-radius: 32rpx;
+  font-size: 26rpx;
+}
+
+.type-tab.is-active {
+  background: var(--color-primary);
+  color: #FFFFFF;
+  font-weight: 600;
+}
+
+.post-list {
+  padding: var(--space-md);
+}
+
+.post-item {
+  margin-bottom: var(--space-md);
+}
+
+.post-actions {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-top: var(--space-sm);
+  padding: 0 var(--space-sm);
+}
+
+.status-badge {
+  font-size: 22rpx;
+  color: #64748B;
+  background: var(--color-muted);
+  padding: 4rpx 12rpx;
+  border-radius: 8rpx;
+}
+
+.action-btns {
+  display: flex;
+  gap: var(--space-md);
+}
+
+.action-btn {
+  font-size: 24rpx;
+  color: var(--color-primary);
+  padding: var(--space-sm) var(--space-md);
+  background: rgba(124, 58, 237, 0.1);
+  border-radius: 8rpx;
+}
+
+.action-btn--danger {
+  color: var(--color-destructive);
+  background: rgba(220, 38, 38, 0.1);
+}
+
+.load-more {
+  text-align: center;
+  padding: var(--space-lg) 0;
+  color: #94A3B8;
+  font-size: 24rpx;
+}

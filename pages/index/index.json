@@ -1,0 +1,12 @@
+{
+  "usingComponents": {
+    "search-bar": "/components/search-bar/search-bar",
+    "category-nav": "/components/category-nav/category-nav",
+    "post-card": "/components/post-card/post-card",
+    "empty-state": "/components/empty-state/empty-state",
+    "toast": "/components/toast/toast"
+  },
+  "navigationBarTitleText": "kimi校园",
+  "enablePullDownRefresh": true,
+  "backgroundColor": "#FAF5FF"
+}

@@ -1,0 +1,129 @@
+<view class="page post-detail-page" wx:if="{{post}}">
+  <!-- 图片轮播 -->
+  <view class="image-swiper-section" wx:if="{{post.images && post.images.length > 0}}">
+    <swiper
+      class="image-swiper"
+      indicator-dots
+      indicator-color="rgba(255,255,255,0.5)"
+      indicator-active-color="#7C3AED"
+      bindchange="onSwiperChange"
+    >
+      <swiper-item
+        wx:for="{{post.images}}"
+        wx:key="*this"
+        data-index="{{index}}"
+        bindtap="previewImage"
+      >
+        <image class="swiper-image" src="{{item}}" mode="aspectFill" />
+      </swiper-item>
+    </swiper>
+    <view class="image-counter" wx:if="{{post.images.length > 1}}">{{currentImage + 1}} / {{post.images.length}}</view>
+  </view>
+
+  <view class="image-swiper-section empty-images" wx:else>
+    <text class="empty-images__text">暂无图片</text>
+  </view>
+
+  <!-- 标题价格 -->
+  <view class="info-card">
+    <view class="title-row">
+      <text class="post-price">{{formatPrice(post.price, post.originalPrice)}}</text>
+    </view>
+    <view class="post-title">{{post.title}}</view>
+    <view class="meta-row">
+      <text class="meta-tag">{{getCategoryName(CATEGORIES, post.category)}}</text>
+      <text class="meta-tag" wx:if="{{post.condition}}">{{getConditionName(CONDITIONS, post.condition)}}</text>
+      <text class="meta-tag">{{post.campus}}</text>
+    </view>
+  </view>
+
+  <!-- 发布者 -->
+  <view class="info-card publisher-card">
+    <image class="publisher-avatar avatar" src="{{publisher.avatar || '/images/avatar-default.png'}}" />
+    <view class="publisher-info">
+      <view class="publisher-name">
+        {{publisher.nickname || '未知用户'}}
+        <text class="verified-badge" wx:if="{{publisher.verifiedStatus === 'approved'}}">已认证</text>
+      </view>
+      <view class="publisher-meta">{{publisher.campus}} · {{formatDate(post.createdAt)}}</view>
+    </view>
+  </view>
+
+  <!-- 描述 -->
+  <view class="info-card">
+    <view class="section-label">物品详情</view>
+    <view class="post-description">{{post.description}}</view>
+
+    <view class="tag-list" wx:if="{{post.tags && post.tags.length > 0}}">
+      <view class="post-tag" wx:for="{{post.tags}}" wx:key="*this">{{item}}</view>
+    </view>
+
+    <view class="location-row" wx:if="{{post.location}}">
+      <text class="location-label">交易地点：</text>
+      <text class="location-value">{{post.location}}</text>
+    </view>
+  </view>
+
+  <!-- 底部占位 -->
+  <view class="bottom-placeholder"></view>
+
+  <!-- 底部操作栏 -->
+  <view class="action-bar">
+    <view class="action-item" bindtap="toggleFavorite">
+      <view class="action-icon favorite-icon {{isFavorite ? 'is-active' : ''}}"></view>
+      <text class="action-text {{isFavorite ? 'is-active' : ''}}">{{isFavorite ? '已收藏' : '收藏'}}</text>
+    </view>
+
+    <view class="action-item" bindtap="onReportTap" wx:if="{{!isOwner}}">
+      <view class="action-icon report-icon"></view>
+      <text class="action-text">举报</text>
+    </view>
+
+    <view class="action-item" bindtap="onEditTap" wx:if="{{isOwner}}">
+      <view class="action-icon edit-icon"></view>
+      <text class="action-text">编辑</text>
+    </view>
+
+    <view class="action-item" bindtap="onDeleteTap" wx:if="{{isOwner}}">
+      <view class="action-icon delete-icon"></view>
+      <text class="action-text">删除</text>
+    </view>
+
+    <view class="action-primary" bindtap="onMessageTap" wx:if="{{!isOwner}}">
+      <text>私信联系</text>
+    </view>
+  </view>
+
+  <!-- 举报弹窗 -->
+  <view class="report-modal" wx:if="{{showReportModal}}">
+    <view class="report-mask" bindtap="onReportCancel"></view>
+    <view class="report-content">
+      <view class="report-title">举报帖子</view>
+
+      <view class="report-reasons">
+        <view
+          class="report-reason {{selectedReportReason === item.id ? 'is-active' : ''}}"
+          wx:for="{{reportReasons}}"
+          wx:key="id"
+          data-id="{{item.id}}"
+          bindtap="selectReportReason"
+        >
+          {{item.name}}
+        </view>
+      </view>
+
+      <textarea
+        class="report-detail"
+        placeholder="请补充举报说明（选填）"
+        value="{{reportDetail}}"
+        bindinput="onReportDetailInput"
+        maxlength="200"
+      />
+
+      <view class="report-actions">
+        <view class="report-btn report-btn--cancel" bindtap="onReportCancel">取消</view>
+        <view class="report-btn report-btn--confirm" bindtap="submitReport">提交</view>
+      </view>
+    </view>
+  </view>
+</view>

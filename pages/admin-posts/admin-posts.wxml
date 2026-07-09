@@ -1,0 +1,50 @@
+<view class="page admin-posts-page">
+  <view class="status-tabs">
+    <view
+      class="status-tab {{currentStatus === item.id ? 'is-active' : ''}}"
+      wx:for="{{STATUS_TABS}}"
+      wx:key="id"
+      data-status="{{item.id}}"
+      bindtap="switchStatus"
+    >
+      {{item.name}}
+    </view>
+  </view>
+
+  <view class="post-list" wx:if="{{posts.length > 0}}">
+    <view class="post-item" wx:for="{{posts}}" wx:key="id">
+      <post-card post="{{item}}" bindtap="onPostTap" />
+      <view class="post-actions">
+        <view
+          class="action-btn action-btn--primary"
+          bindtap="onApproveTap"
+          data-postid="{{item.id}}"
+          wx:if="{{item.status !== 'active'}}"
+        >
+          通过
+        </view>
+        <view
+          class="action-btn action-btn--danger"
+          bindtap="onRejectTap"
+          data-postid="{{item.id}}"
+          wx:if="{{item.status !== 'inactive'}}"
+        >
+          下架
+        </view>
+      </view>
+    </view>
+
+    <view class="load-more">
+      <text wx:if="{{loading}}">加载中...</text>
+      <text wx:elif="{{hasMore}}">上拉加载更多</text>
+      <text wx:else>已经到底啦</text>
+    </view>
+  </view>
+
+  <empty-state
+    wx:else
+    icon="box"
+    title="暂无帖子"
+    description=""
+  />
+</view>

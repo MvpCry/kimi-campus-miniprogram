@@ -1,0 +1,8 @@
+{
+  "usingComponents": {
+    "confirm-modal": "/components/confirm-modal/confirm-modal",
+    "toast": "/components/toast/toast"
+  },
+  "navigationBarTitleText": "帖子详情",
+  "backgroundColor": "#FAF5FF"
+}

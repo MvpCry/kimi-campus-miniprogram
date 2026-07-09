@@ -1,0 +1,206 @@
+/*
+ * kimi校园 - 全局样式
+ * 设计系统来源：design-system/kimi校园/MASTER.md
+ * 字体覆盖：小程序内使用系统字体栈，不使用 Kalam/Patrick Hand 手写体
+ */
+
+page {
+  --color-primary: #7C3AED;
+  --color-on-primary: #FFFFFF;
+  --color-secondary: #A78BFA;
+  --color-accent: #16A34A;
+  --color-background: #FAF5FF;
+  --color-foreground: #4C1D95;
+  --color-muted: #ECEEF9;
+  --color-border: #DDD6FE;
+  --color-destructive: #DC2626;
+  --color-ring: #7C3AED;
+
+  --space-xs: 4rpx;
+  --space-sm: 8rpx;
+  --space-md: 16rpx;
+  --space-lg: 24rpx;
+  --space-xl: 32rpx;
+  --space-2xl: 48rpx;
+  --space-3xl: 64rpx;
+
+  --radius-sm: 8rpx;
+  --radius-md: 16rpx;
+  --radius-lg: 24rpx;
+  --radius-xl: 32rpx;
+
+  --shadow-sm: 0 2rpx 4rpx rgba(0, 0, 0, 0.05);
+  --shadow-md: 0 8rpx 12rpx rgba(0, 0, 0, 0.1);
+  --shadow-lg: 0 20rpx 30rpx rgba(0, 0, 0, 0.1);
+
+  font-family: -apple-system, BlinkMacSystemFont, 'PingFang SC', 'Hiragino Sans GB', 'Microsoft YaHei', 'Helvetica Neue', Arial, sans-serif;
+  font-size: 28rpx;
+  line-height: 1.5;
+  color: #1F2937;
+  background-color: var(--color-background);
+  -webkit-font-smoothing: antialiased;
+}
+
+/* 通用容器 */
+.container {
+  padding: var(--space-md);
+  box-sizing: border-box;
+}
+
+.safe-bottom {
+  padding-bottom: constant(safe-area-inset-bottom);
+  padding-bottom: env(safe-area-inset-bottom);
+}
+
+/* 卡片 */
+.card {
+  background: #FFFFFF;
+  border-radius: var(--radius-md);
+  padding: var(--space-lg);
+  box-shadow: var(--shadow-sm);
+  margin-bottom: var(--space-md);
+}
+
+/* 按钮 */
+.btn {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 88rpx;
+  border-radius: var(--radius-md);
+  font-size: 30rpx;
+  font-weight: 600;
+  transition: opacity 200ms ease;
+}
+
+.btn-primary {
+  background: var(--color-accent);
+  color: var(--color-on-primary);
+}
+
+.btn-primary:active {
+  opacity: 0.9;
+}
+
+.btn-secondary {
+  background: transparent;
+  color: var(--color-primary);
+  border: 2rpx solid var(--color-primary);
+}
+
+.btn-secondary:active {
+  background: rgba(124, 58, 237, 0.05);
+}
+
+.btn-ghost {
+  background: var(--color-muted);
+  color: var(--color-foreground);
+}
+
+.btn-destructive {
+  background: var(--color-destructive);
+  color: #FFFFFF;
+}
+
+.btn-sm {
+  height: 64rpx;
+  font-size: 26rpx;
+  padding: 0 var(--space-md);
+}
+
+/* 文本工具 */
+.text-primary { color: var(--color-primary); }
+.text-accent { color: var(--color-accent); }
+.text-destructive { color: var(--color-destructive); }
+.text-muted { color: #64748B; }
+.text-secondary { color: #94A3B8; }
+.text-center { text-align: center; }
+
+.text-lg { font-size: 32rpx; }
+.text-xl { font-size: 36rpx; font-weight: 600; }
+.text-2xl { font-size: 48rpx; font-weight: 700; }
+
+.font-medium { font-weight: 500; }
+.font-semibold { font-weight: 600; }
+.font-bold { font-weight: 700; }
+
+/* 弹性布局 */
+.flex { display: flex; }
+.flex-col { flex-direction: column; }
+.items-center { align-items: center; }
+.justify-center { justify-content: center; }
+.justify-between { justify-content: space-between; }
+.flex-1 { flex: 1; }
+.gap-sm { gap: var(--space-sm); }
+.gap-md { gap: var(--space-md); }
+.gap-lg { gap: var(--space-lg); }
+
+/* 间距 */
+.mt-sm { margin-top: var(--space-sm); }
+.mt-md { margin-top: var(--space-md); }
+.mt-lg { margin-top: var(--space-lg); }
+.mb-sm { margin-bottom: var(--space-sm); }
+.mb-md { margin-bottom: var(--space-md); }
+.mb-lg { margin-bottom: var(--space-lg); }
+.ml-sm { margin-left: var(--space-sm); }
+.ml-md { margin-left: var(--space-md); }
+.mr-sm { margin-right: var(--space-sm); }
+.mr-md { margin-right: var(--space-md); }
+.p-md { padding: var(--space-md); }
+.p-lg { padding: var(--space-lg); }
+
+/* 标签 */
+.tag {
+  display: inline-flex;
+  align-items: center;
+  padding: 4rpx 12rpx;
+  border-radius: 8rpx;
+  font-size: 22rpx;
+  font-weight: 500;
+}
+
+.tag-primary {
+  background: rgba(124, 58, 237, 0.1);
+  color: var(--color-primary);
+}
+
+.tag-accent {
+  background: rgba(22, 163, 74, 0.1);
+  color: var(--color-accent);
+}
+
+.tag-destructive {
+  background: rgba(220, 38, 38, 0.1);
+  color: var(--color-destructive);
+}
+
+.tag-muted {
+  background: var(--color-muted);
+  color: #64748B;
+}
+
+/* 分割线 */
+.divider {
+  height: 2rpx;
+  background: var(--color-border);
+  margin: var(--space-md) 0;
+}
+
+/* 圆角头像 */
+.avatar {
+  border-radius: 50%;
+  background: var(--color-muted);
+}
+
+/* 列表 */
+.list {
+  padding-bottom: var(--space-3xl);
+}
+
+/* 隐藏滚动条提示 */
+::-webkit-scrollbar {
+  display: none;
+  width: 0;
+  height: 0;
+  background: transparent;
+}

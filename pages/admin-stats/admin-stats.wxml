@@ -1,0 +1,52 @@
+<view class="page admin-stats-page">
+  <view class="stats-card">
+    <view class="stats-title">近7天新增帖子</view>
+
+    <view class="trend-chart" wx:if="{{trends.length > 0}}">
+      <view
+        class="trend-bar-wrap"
+        wx:for="{{trends}}"
+        wx:key="date"
+      >
+        <view
+          class="trend-bar"
+          style="height: {{(item.postCount / maxPostCount) * 240}}rpx;"
+        ></view>
+        <text class="trend-label">{{item.dateLabel}}</text>
+      </view>
+    </view>
+
+    <empty-state
+      wx:else
+      icon="chart"
+      title="暂无数据"
+      description=""
+    />
+  </view>
+
+  <view class="stats-card">
+    <view class="stats-title">分类占比</view>
+
+    <view class="category-chart" wx:if="{{categories.length > 0}}">
+      <view class="category-item" wx:for="{{categories}}" wx:key="id">
+        <view class="category-info">
+          <text class="category-name">{{item.name}}</text>
+          <text class="category-count">{{item.count}}</text>
+        </view>
+        <view class="category-bar-bg">
+          <view
+            class="category-bar"
+            style="width: {{(item.count / maxCategoryCount) * 100}}%;"
+          ></view>
+        </view>
+      </view>
+    </view>
+
+    <empty-state
+      wx:else
+      icon="chart"
+      title="暂无数据"
+      description=""
+    />
+  </view>
+</view>

@@ -1,0 +1,38 @@
+[
+  {
+    "id": "m1001",
+    "postId": "p1001",
+    "senderId": "u1002",
+    "receiverId": "u1001",
+    "content": "同学，台灯还在吗？",
+    "read": true,
+    "createdAt": "2026-07-07T09:00:00Z"
+  },
+  {
+    "id": "m1002",
+    "postId": "p1001",
+    "senderId": "u1001",
+    "receiverId": "u1002",
+    "content": "在的，可以今晚来紫荆3号楼拿。",
+    "read": true,
+    "createdAt": "2026-07-07T09:05:00Z"
+  },
+  {
+    "id": "m1003",
+    "postId": "p1002",
+    "senderId": "u1001",
+    "receiverId": "u1002",
+    "content": "iPad还能再便宜点吗？",
+    "read": false,
+    "createdAt": "2026-07-07T20:00:00Z"
+  },
+  {
+    "id": "m1004",
+    "postId": "p1004",
+    "senderId": "u1001",
+    "receiverId": "u1002",
+    "content": "我有一辆电动车想出，续航大概25km，可以看看。",
+    "read": false,
+    "createdAt": "2026-07-07T21:00:00Z"
+  }
+]

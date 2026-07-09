@@ -1,0 +1,78 @@
+<view class="page search-page">
+  <view class="search-header">
+    <search-bar
+      value="{{keyword}}"
+      placeholder="搜索物品、教材、电动车..."
+      bindinput="onInput"
+      bindsearch="onSearch"
+      bindclear="onClear"
+    />
+  </view>
+
+  <!-- 搜索前：历史 + 热搜 -->
+  <view class="search-suggest" wx:if="{{!searched}}">
+    <view class="suggest-section" wx:if="{{history.length > 0}}">
+      <view class="suggest-header">
+        <text class="suggest-title">历史搜索</text>
+        <text class="suggest-clear" bindtap="clearHistory">清空</text>
+      </view>
+      <view class="tag-list">
+        <view
+          class="tag tag-muted"
+          wx:for="{{history}}"
+          wx:key="*this"
+          data-keyword="{{item}}"
+          bindtap="onHistoryTap"
+        >{{item}}</view>
+      </view>
+    </view>
+
+    <view class="suggest-section">
+      <view class="suggest-header">
+        <text class="suggest-title">热门搜索</text>
+      </view>
+      <view class="tag-list">
+        <view
+          class="tag tag-primary"
+          wx:for="{{hotSearch}}"
+          wx:key="*this"
+          data-keyword="{{item}}"
+          bindtap="onHotTap"
+        >{{item}}</view>
+      </view>
+    </view>
+  </view>
+
+  <!-- 搜索结果 -->
+  <view class="search-result" wx:else>
+    <view class="result-header">
+      <text class="result-title">“{{keyword}}” 的搜索结果</text>
+    </view>
+
+    <view class="post-list" wx:if="{{posts.length > 0}}">
+      <post-card
+        wx:for="{{posts}}"
+        wx:key="id"
+        post="{{item}}"
+        bindtap="onPostTap"
+      />
+
+      <view class="load-more">
+        <text wx:if="{{loading}}">加载中...</text>
+        <text wx:elif="{{hasMore}}">上拉加载更多</text>
+        <text wx:else>已经到底啦</text>
+      </view>
+    </view>
+
+    <view class="search-loading" wx:elif="{{searching}}">
+      <text>搜索中...</text>
+    </view>
+
+    <empty-state
+      wx:else
+      icon="search"
+      title="没有找到相关结果"
+      description="换个关键词试试"
+    />
+  </view>
+</view>

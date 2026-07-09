@@ -1,0 +1,9 @@
+{
+  "usingComponents": {
+    "post-card": "/components/post-card/post-card",
+    "empty-state": "/components/empty-state/empty-state"
+  },
+  "navigationBarTitleText": "我的收藏",
+  "enablePullDownRefresh": true,
+  "backgroundColor": "#FAF5FF"
+}

@@ -1,0 +1,27 @@
+<view class="page history-page">
+  <view class="history-header" wx:if="{{hasHistory}}">
+    <view class="clear-btn" bindtap="clearHistory">清空历史</view>
+  </view>
+
+  <view class="history-list" wx:if="{{hasHistory}}">
+    <view class="history-group" wx:for="{{groupedHistory}}" wx:key="date">
+      <view class="history-date">{{item.date}}</view>
+      <view class="post-list">
+        <post-card
+          wx:for="{{item.posts}}"
+          wx:for-item="post"
+          wx:key="id"
+          post="{{post}}"
+          bindtap="onPostTap"
+        />
+      </view>
+    </view>
+  </view>
+
+  <empty-state
+    wx:else
+    icon="clock"
+    title="暂无浏览历史"
+    description="去看看校园里的好物吧"
+  />
+</view>

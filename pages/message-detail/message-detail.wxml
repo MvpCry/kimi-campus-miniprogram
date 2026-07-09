@@ -1,0 +1,54 @@
+<view class="page message-detail-page">
+  <!-- 帖子摘要 -->
+  <view class="post-summary" wx:if="{{post}}" bindtap="onPostTap">
+    <image class="post-thumb" src="{{post.images[0]}}" mode="aspectFill" wx:if="{{post.images && post.images.length > 0}}" />
+    <view class="post-summary__info">
+      <view class="post-summary__title">{{post.title}}</view>
+      <view class="post-summary__price">¥{{post.price}}</view>
+    </view>
+  </view>
+
+  <!-- 消息列表 -->
+  <scroll-view
+    class="message-list"
+    scroll-y
+    scroll-into-view="{{scrollIntoView}}"
+    scroll-with-animation
+  >
+    <view
+      class="message-item message-item--{{item.isSelf ? 'self' : 'other'}}"
+      wx:for="{{messages}}"
+      wx:key="id"
+      id="msg-{{item.id}}"
+    >
+      <image
+        class="message-avatar avatar"
+        src="{{item.isSelf ? '/images/avatar-default.png' : (receiver.avatar || '/images/avatar-default.png')}}"
+        wx:if="{{!item.isSelf}}"
+      />
+
+      <view class="message-bubble">
+        <view class="message-content">{{item.content}}</view>
+        <view class="message-time">{{item.timeText}}</view>
+      </view>
+    </view>
+  </scroll-view>
+
+  <!-- 输入框 -->
+  <view class="input-bar">
+    <input
+      class="message-input"
+      placeholder="输入消息..."
+      value="{{inputValue}}"
+      bindinput="onInput"
+      confirm-type="send"
+      bindconfirm="sendMessage"
+    />
+    <view
+      class="send-btn {{inputValue !== '' ? 'is-active' : ''}} {{sending ? 'is-disabled' : ''}}"
+      bindtap="sendMessage"
+    >
+      发送
+    </view>
+  </view>
+</view>

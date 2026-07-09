@@ -1,0 +1,43 @@
+<view class="page zone-page">
+  <view class="zone-header">
+    <view class="zone-title">失物招领</view>
+    <view class="zone-desc">找回遗失物品，发布拾到物品</view>
+  </view>
+
+  <view class="sub-type-tabs">
+    <view
+      class="sub-type-tab {{currentSubType === item.id ? 'is-active' : ''}}"
+      wx:for="{{SUB_TYPES}}"
+      wx:key="id"
+      data-type="{{item.id}}"
+      bindtap="switchSubType"
+    >
+      {{item.name}}
+    </view>
+  </view>
+
+  <view class="post-section">
+    <view class="post-list" wx:if="{{posts.length > 0}}">
+      <post-card
+        wx:for="{{posts}}"
+        wx:key="id"
+        post="{{item}}"
+        show-type-tag
+        bindtap="onPostTap"
+      />
+
+      <view class="load-more">
+        <text wx:if="{{loading}}">加载中...</text>
+        <text wx:elif="{{hasMore}}">上拉加载更多</text>
+        <text wx:else>已经到底啦</text>
+      </view>
+    </view>
+
+    <empty-state
+      wx:else
+      icon="search"
+      title="暂无相关帖子"
+      description="去发布一条失物招领吧"
+    />
+  </view>
+</view>

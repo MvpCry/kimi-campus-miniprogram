@@ -1,0 +1,104 @@
+.category-nav {
+  width: 100%;
+  background: var(--color-background);
+}
+
+.category-scroll {
+  display: flex;
+  flex-direction: row;
+  white-space: nowrap;
+  padding: var(--space-sm) 0;
+}
+
+.category-item {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: var(--space-sm);
+  transition: all 150ms ease;
+}
+
+/* Pill theme */
+.category-nav--pill .category-item {
+  height: 64rpx;
+  padding: 0 var(--space-md);
+  margin-right: var(--space-sm);
+  border-radius: 32rpx;
+  background: var(--color-muted);
+  color: #64748B;
+  font-size: 26rpx;
+}
+
+.category-nav--pill .category-item:first-child {
+  margin-left: var(--space-md);
+}
+
+.category-nav--pill .category-item:last-child {
+  margin-right: var(--space-md);
+}
+
+.category-nav--pill .category-item.is-active {
+  background: var(--color-primary);
+  color: var(--color-on-primary);
+  font-weight: 600;
+}
+
+.category-nav--pill .category-item:active {
+  opacity: 0.85;
+}
+
+/* Card theme */
+.category-nav--card .category-scroll {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  padding: var(--space-md);
+  gap: var(--space-md);
+}
+
+.category-nav--card .category-item {
+  flex-direction: column;
+  width: calc(25% - var(--space-md));
+  padding: var(--space-md) 0;
+  border-radius: var(--radius-md);
+  background: var(--color-muted);
+}
+
+.category-nav--card .category-item.is-active {
+  background: rgba(124, 58, 237, 0.12);
+}
+
+.category-nav--card .category-item:active {
+  transform: scale(0.95);
+}
+
+.category-icon {
+  width: 80rpx;
+  height: 80rpx;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: rgba(124, 58, 237, 0.1);
+  color: var(--color-primary);
+  font-size: 34rpx;
+  font-weight: 700;
+  margin-bottom: var(--space-sm);
+}
+
+.category-nav--card .category-name {
+  font-size: 24rpx;
+  color: #1F2937;
+}
+
+.category-nav--card .is-active .category-name {
+  color: var(--color-primary);
+  font-weight: 600;
+}
+
+/* Hide scrollbar */
+::-webkit-scrollbar {
+  display: none;
+  width: 0;
+  height: 0;
+}

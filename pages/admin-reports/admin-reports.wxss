@@ -1,0 +1,117 @@
+.admin-reports-page {
+  min-height: 100vh;
+  padding-bottom: var(--space-3xl);
+}
+
+.status-tabs {
+  display: flex;
+  background: #FFFFFF;
+  border-bottom: 2rpx solid var(--color-border);
+  padding: 0 var(--space-md);
+}
+
+.status-tab {
+  flex: 1;
+  height: 88rpx;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 28rpx;
+  color: #64748B;
+  position: relative;
+}
+
+.status-tab.is-active {
+  color: var(--color-primary);
+  font-weight: 600;
+}
+
+.status-tab.is-active::after {
+  content: '';
+  position: absolute;
+  bottom: 0;
+  left: 20%;
+  right: 20%;
+  height: 4rpx;
+  background: var(--color-primary);
+}
+
+.report-list {
+  padding: var(--space-md);
+}
+
+.report-card {
+  background: #FFFFFF;
+  border-radius: var(--radius-md);
+  padding: var(--space-lg);
+  margin-bottom: var(--space-md);
+}
+
+.report-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: var(--space-md);
+}
+
+.report-reason {
+  font-size: 30rpx;
+  font-weight: 600;
+  color: var(--color-destructive);
+}
+
+.report-time {
+  font-size: 22rpx;
+  color: #94A3B8;
+}
+
+.report-detail {
+  font-size: 26rpx;
+  color: #374151;
+  margin-bottom: var(--space-md);
+  line-height: 1.5;
+}
+
+.report-target,
+.report-reporter {
+  font-size: 24rpx;
+  color: #64748B;
+  margin-bottom: var(--space-sm);
+}
+
+.target-label {
+  color: #94A3B8;
+}
+
+.target-title {
+  color: #1F2937;
+}
+
+.report-actions {
+  display: flex;
+  justify-content: flex-end;
+  gap: var(--space-md);
+  margin-top: var(--space-md);
+  padding-top: var(--space-md);
+  border-top: 2rpx solid var(--color-border);
+}
+
+.action-btn {
+  font-size: 24rpx;
+  padding: var(--space-sm) var(--space-md);
+  border-radius: 8rpx;
+  color: #64748B;
+  background: var(--color-muted);
+}
+
+.action-btn--danger {
+  color: var(--color-destructive);
+  background: rgba(220, 38, 38, 0.1);
+}
+
+.load-more {
+  text-align: center;
+  padding: var(--space-lg) 0;
+  color: #94A3B8;
+  font-size: 24rpx;
+}

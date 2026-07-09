@@ -1,0 +1,44 @@
+<view class="page admin-users-page">
+  <view class="search-bar">
+    <input
+      class="search-input"
+      placeholder="搜索昵称或学号"
+      value="{{keyword}}"
+      bindinput="onSearchInput"
+      confirm-type="search"
+      bindconfirm="onSearch"
+    />
+    <view class="search-btn" bindtap="onSearch">搜索</view>
+  </view>
+
+  <view class="user-list" wx:if="{{users.length > 0}}">
+    <view class="user-item" wx:for="{{users}}" wx:key="id">
+      <image class="user-avatar avatar" src="{{item.avatar || '/images/avatar-default.png'}}" />
+      <view class="user-info">
+        <view class="user-name">
+          {{item.nickname || '未命名'}}
+          <text class="role-tag" wx:if="{{item.role === 'admin'}}">管理员</text>
+        </view>
+        <view class="user-meta">{{item.campus}} · 学号：{{item.studentId || '未填写'}}</view>
+        <view class="user-status">
+          认证：{{item.verifiedStatus === 'approved' ? '通过' : item.verifiedStatus === 'pending' ? '审核中' : '未认证'}}
+          <text wx:if="{{item.mutedUntil}}"> · 禁言至 {{item.mutedUntil}}</text>
+        </view>
+      </view>
+      <view class="mute-btn" bindtap="onMuteTap" data-userid="{{item.id}}">禁言</view>
+    </view>
+
+    <view class="load-more">
+      <text wx:if="{{loading}}">加载中...</text>
+      <text wx:elif="{{hasMore}}">上拉加载更多</text>
+      <text wx:else>已经到底啦</text>
+    </view>
+  </view>
+
+  <empty-state
+    wx:else
+    icon="search"
+    title="暂无用户"
+    description=""
+  />
+</view>

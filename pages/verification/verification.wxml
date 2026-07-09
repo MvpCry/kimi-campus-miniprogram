@@ -1,0 +1,80 @@
+<view class="page verification-page">
+  <view class="status-card" wx:if="{{submitted}}">
+    <view class="status-icon"></view>
+    <view class="status-title">
+      {{user.verifiedStatus === 'approved' ? '认证通过' : '认证审核中'}}
+    </view>
+    <view class="status-desc">
+      {{user.verifiedStatus === 'approved' ? '你已通过学生身份认证' : '你的认证申请已提交，请耐心等待审核'}}
+    </view>
+  </view>
+
+  <view class="form-card">
+    <view class="form-section form-row">
+      <text class="form-label">真实姓名</text>
+      <input
+        class="form-input form-input--small"
+        placeholder="请输入"
+        value="{{form.realName}}"
+        data-field="realName"
+        bindinput="onInput"
+        disabled="{{submitted}}"
+      />
+    </view>
+
+    <view class="form-section form-row">
+      <text class="form-label">学号</text>
+      <input
+        class="form-input form-input--small"
+        placeholder="请输入"
+        value="{{form.studentId}}"
+        data-field="studentId"
+        bindinput="onInput"
+        disabled="{{submitted}}"
+      />
+    </view>
+
+    <view class="form-section form-row">
+      <text class="form-label">校区</text>
+      <picker mode="selector" range="{{CAMPUSES}}" bindchange="onCampusChange" disabled="{{submitted}}">
+        <view class="picker-value">
+          {{form.campus || '请选择'}}
+          <text class="picker-arrow"></text>
+        </view>
+      </picker>
+    </view>
+
+    <view class="form-section form-row">
+      <text class="form-label">宿舍楼</text>
+      <input
+        class="form-input form-input--small"
+        placeholder="例如：紫荆3号楼"
+        value="{{form.dorm}}"
+        data-field="dorm"
+        bindinput="onInput"
+        disabled="{{submitted}}"
+      />
+    </view>
+
+    <view class="form-section" wx:if="{{!submitted}}">
+      <view class="section-label">学生证照片（选填）</view>
+      <media-uploader
+        files="{{mediaFiles}}"
+        max-count="2"
+        accept="image"
+        bindchange="onMediaChange"
+      />
+    </view>
+  </view>
+
+  <view class="submit-section" wx:if="{{!submitted}}">
+    <view
+      class="btn btn-primary {{submitting ? 'is-disabled' : ''}}"
+      bindtap="submit"
+    >
+      {{submitting ? '提交中...' : '提交认证'}}
+    </view>
+  </view>
+
+  <toast id="toast" />
+</view>

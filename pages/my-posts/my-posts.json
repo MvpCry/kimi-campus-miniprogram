@@ -1,0 +1,10 @@
+{
+  "usingComponents": {
+    "post-card": "/components/post-card/post-card",
+    "empty-state": "/components/empty-state/empty-state",
+    "confirm-modal": "/components/confirm-modal/confirm-modal"
+  },
+  "navigationBarTitleText": "我的发布",
+  "enablePullDownRefresh": true,
+  "backgroundColor": "#FAF5FF"
+}

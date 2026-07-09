@@ -1,0 +1,67 @@
+{
+  "pages": [
+    "pages/index/index",
+    "pages/category/category",
+    "pages/search/search",
+    "pages/post-detail/post-detail",
+    "pages/create-post/create-post",
+    "pages/edit-post/edit-post",
+    "pages/wanted-zone/wanted-zone",
+    "pages/lost-found-zone/lost-found-zone",
+    "pages/barter-zone/barter-zone",
+    "pages/messages/messages",
+    "pages/message-detail/message-detail",
+    "pages/profile/profile",
+    "pages/my-posts/my-posts",
+    "pages/favorites/favorites",
+    "pages/history/history",
+    "pages/verification/verification",
+    "pages/admin/admin",
+    "pages/admin-users/admin-users",
+    "pages/admin-posts/admin-posts",
+    "pages/admin-reports/admin-reports",
+    "pages/admin-stats/admin-stats"
+  ],
+  "window": {
+    "backgroundTextStyle": "dark",
+    "navigationBarBackgroundColor": "#FAF5FF",
+    "navigationBarTitleText": "kimi校园",
+    "navigationBarTextStyle": "black",
+    "backgroundColor": "#FAF5FF"
+  },
+  "tabBar": {
+    "color": "#64748B",
+    "selectedColor": "#7C3AED",
+    "backgroundColor": "#FFFFFF",
+    "borderStyle": "black",
+    "list": [
+      {
+        "pagePath": "pages/index/index",
+        "text": "首页",
+        "iconPath": "images/tab-home.png",
+        "selectedIconPath": "images/tab-home-active.png"
+      },
+      {
+        "pagePath": "pages/category/category",
+        "text": "分类",
+        "iconPath": "images/tab-category.png",
+        "selectedIconPath": "images/tab-category-active.png"
+      },
+      {
+        "pagePath": "pages/messages/messages",
+        "text": "消息",
+        "iconPath": "images/tab-message.png",
+        "selectedIconPath": "images/tab-message-active.png"
+      },
+      {
+        "pagePath": "pages/profile/profile",
+        "text": "我的",
+        "iconPath": "images/tab-profile.png",
+        "selectedIconPath": "images/tab-profile-active.png"
+      }
+    ]
+  },
+  "style": "v2",
+  "sitemapLocation": "sitemap.json",
+  "lazyCodeLoading": "requiredComponents"
+}

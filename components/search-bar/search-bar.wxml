@@ -1,0 +1,19 @@
+<view class="search-bar">
+  <view class="search-input-wrap">
+    <view class="search-icon"></view>
+    <input
+      class="search-input"
+      type="text"
+      placeholder="{{placeholder}}"
+      value="{{value}}"
+      confirm-type="search"
+      bindinput="onInput"
+      bindconfirm="onConfirm"
+      bindfocus="onFocus"
+    />
+    <view class="search-clear" wx:if="{{value}}" bindtap="onClear">×</view>
+  </view>
+  <view class="search-filter" wx:if="{{showFilter}}" bindtap="onFilter">
+    筛选
+  </view>
+</view>

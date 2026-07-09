@@ -1,0 +1,134 @@
+.verification-page {
+  min-height: 100vh;
+  padding-bottom: calc(160rpx + env(safe-area-inset-bottom));
+}
+
+.status-card {
+  margin: var(--space-md);
+  padding: var(--space-xl);
+  background: #FFFFFF;
+  border-radius: var(--radius-md);
+  text-align: center;
+}
+
+.status-icon {
+  width: 96rpx;
+  height: 96rpx;
+  margin: 0 auto var(--space-md);
+  border-radius: 50%;
+  background: rgba(22, 163, 74, 0.1);
+  position: relative;
+}
+
+.status-icon::before {
+  content: '';
+  position: absolute;
+  left: 30rpx;
+  top: 48rpx;
+  width: 20rpx;
+  height: 8rpx;
+  background: var(--color-accent);
+  transform: rotate(45deg);
+}
+
+.status-icon::after {
+  content: '';
+  position: absolute;
+  left: 42rpx;
+  top: 38rpx;
+  width: 36rpx;
+  height: 8rpx;
+  background: var(--color-accent);
+  transform: rotate(-45deg);
+}
+
+.status-title {
+  font-size: 32rpx;
+  font-weight: 700;
+  color: #1F2937;
+  margin-bottom: var(--space-sm);
+}
+
+.status-desc {
+  font-size: 26rpx;
+  color: #64748B;
+}
+
+.form-card {
+  margin: var(--space-md);
+  padding: var(--space-lg);
+  background: #FFFFFF;
+  border-radius: var(--radius-md);
+}
+
+.form-section {
+  margin-bottom: var(--space-lg);
+}
+
+.form-section:last-child {
+  margin-bottom: 0;
+}
+
+.section-label {
+  font-size: 28rpx;
+  font-weight: 600;
+  color: #1F2937;
+  margin-bottom: var(--space-md);
+}
+
+.form-row {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: var(--space-md);
+}
+
+.form-label {
+  font-size: 28rpx;
+  color: #1F2937;
+  flex-shrink: 0;
+}
+
+.form-input {
+  flex: 1;
+  height: 88rpx;
+  padding: 0 var(--space-md);
+  border: 2rpx solid var(--color-border);
+  border-radius: var(--radius-md);
+  font-size: 28rpx;
+  text-align: right;
+  box-sizing: border-box;
+}
+
+.picker-value {
+  display: flex;
+  align-items: center;
+  gap: var(--space-sm);
+  font-size: 28rpx;
+  color: #1F2937;
+}
+
+.picker-arrow {
+  width: 0;
+  height: 0;
+  border-left: 8rpx solid transparent;
+  border-right: 8rpx solid transparent;
+  border-top: 8rpx solid #94A3B8;
+}
+
+.submit-section {
+  position: fixed;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  padding: var(--space-md) var(--space-lg);
+  padding-bottom: calc(var(--space-md) + env(safe-area-inset-bottom));
+  background: #FFFFFF;
+  border-top: 2rpx solid var(--color-border);
+  z-index: 100;
+}
+
+.is-disabled {
+  opacity: 0.6;
+  pointer-events: none;
+}

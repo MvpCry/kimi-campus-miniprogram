@@ -1,0 +1,12 @@
+.favorites-page {
+  min-height: 100vh;
+  padding: var(--space-md);
+  padding-bottom: var(--space-3xl);
+}
+
+.load-more {
+  text-align: center;
+  padding: var(--space-lg) 0;
+  color: #94A3B8;
+  font-size: 24rpx;
+}

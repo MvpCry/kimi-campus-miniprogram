@@ -1,0 +1,7 @@
+{
+  "usingComponents": {
+    "toast": "/components/toast/toast"
+  },
+  "navigationBarTitleText": "私信",
+  "backgroundColor": "#FAF5FF"
+}

@@ -1,0 +1,30 @@
+<view class="post-card" bindtap="onTap">
+  <view class="post-main">
+    <view class="post-info">
+      <view class="post-title-row">
+        <text class="type-tag" wx:if="{{showTypeTag}}">{{post.type === 'sell' ? '出' : post.type === 'wanted' ? '求' : post.type === 'lost-found' ? '寻' : '换'}}</text>
+        <text class="post-title">{{post.title}}</text>
+      </view>
+
+      <view class="post-meta">
+        <text class="post-category" wx:if="{{categoryName}}">{{categoryName}}</text>
+        <text class="post-condition" wx:if="{{conditionName}}">{{conditionName}}</text>
+        <text class="post-campus" wx:if="{{post.campus}}">{{post.campus}}</text>
+      </view>
+
+      <view class="post-tags" wx:if="{{tagStyles.length > 0}}">
+        <view class="post-tag" wx:for="{{tagStyles}}" wx:key="name" style="color: {{item.color}}; background: {{item.color}}15;">
+          {{item.name}}
+        </view>
+      </view>
+
+      <view class="post-bottom">
+        <text class="post-price" wx:if="{{priceText}}">{{priceText}}</text>
+        <text class="post-time">{{timeText}}</text>
+      </view>
+    </view>
+
+    <image class="post-image" wx:if="{{post.images && post.images.length > 0}}" src="{{post.images[0]}}" mode="aspectFill" lazy-load></image>
+    <view class="post-image empty-image" wx:else></view>
+  </view>
+</view>

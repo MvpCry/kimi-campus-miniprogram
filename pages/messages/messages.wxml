@@ -1,0 +1,35 @@
+<view class="page messages-page">
+  <view class="conversation-list" wx:if="{{conversations.length > 0}}">
+    <view
+      class="conversation-item"
+      wx:for="{{conversations}}"
+      wx:key="postId"
+      data-conversation="{{item}}"
+      bindtap="onConversationTap"
+    >
+      <image
+        class="conversation-avatar avatar"
+        src="{{item.otherUser.avatar || '/images/avatar-default.png'}}"
+      />
+
+      <view class="conversation-body">
+        <view class="conversation-header">
+          <text class="conversation-name">{{item.otherUser.nickname || '未知用户'}}</text>
+          <text class="conversation-time">{{item.timeText}}</text>
+        </view>
+        <view class="conversation-preview">{{item.lastMessage.content}}</view>
+      </view>
+
+      <view class="conversation-badge" wx:if="{{item.unreadCount > 0}}">
+        {{item.unreadCount > 99 ? '99+' : item.unreadCount}}
+      </view>
+    </view>
+  </view>
+
+  <empty-state
+    wx:else
+    icon="message"
+    title="暂无消息"
+    description="去帖子详情页私信卖家吧"
+  />
+</view>

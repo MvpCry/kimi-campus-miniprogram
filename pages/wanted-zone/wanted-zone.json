@@ -1,0 +1,10 @@
+{
+  "usingComponents": {
+    "filter-bar": "/components/filter-bar/filter-bar",
+    "post-card": "/components/post-card/post-card",
+    "empty-state": "/components/empty-state/empty-state"
+  },
+  "navigationBarTitleText": "求购专区",
+  "enablePullDownRefresh": true,
+  "backgroundColor": "#FAF5FF"
+}

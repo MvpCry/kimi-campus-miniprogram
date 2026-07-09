@@ -1,0 +1,140 @@
+<view class="page create-post-page">
+  <view class="form-card">
+    <view class="form-section">
+      <view class="section-label">帖子类型</view>
+      <view class="type-selector">
+        <view
+          class="type-item {{form.type === item.id ? 'is-active' : ''}}"
+          wx:for="{{POST_TYPES}}"
+          wx:key="id"
+          data-type="{{item.id}}"
+          bindtap="selectType"
+        >
+          {{item.name}}
+        </view>
+      </view>
+    </view>
+
+    <view class="form-section">
+      <input
+        class="form-input"
+        placeholder="标题"
+        value="{{form.title}}"
+        data-field="title"
+        bindinput="onInput"
+        maxlength="60"
+      />
+    </view>
+
+    <view class="form-section">
+      <textarea
+        class="form-textarea"
+        placeholder="描述"
+        value="{{form.description}}"
+        data-field="description"
+        bindinput="onInput"
+        maxlength="2000"
+      />
+    </view>
+
+    <view class="form-section form-row">
+      <text class="form-label">分类</text>
+      <picker mode="selector" range="{{CATEGORIES}}" range-key="name" value="{{categoryIndex}}" bindchange="onCategoryChange">
+        <view class="picker-value">
+          {{CATEGORIES[categoryIndex].name}}
+          <text class="picker-arrow"></text>
+        </view>
+      </picker>
+    </view>
+
+    <view class="form-section">
+      <view class="section-label">标签（最多3个）</view>
+      <view class="tag-selector">
+        <view
+          class="tag-item {{item.active ? 'is-active' : ''}}"
+          wx:for="{{displayTags}}"
+          wx:key="id"
+          data-name="{{item.name}}"
+          bindtap="toggleTag"
+        >
+          {{item.name}}
+        </view>
+      </view>
+    </view>
+
+    <view class="form-section form-row" wx:if="{{showPrice}}">
+      <text class="form-label">{{form.type === 'wanted' ? '预算' : '价格'}}</text>
+      <input
+        class="form-input form-input--small"
+        type="digit"
+        placeholder="¥0.00"
+        value="{{form.price}}"
+        data-field="price"
+        bindinput="onInput"
+      />
+    </view>
+
+    <view class="form-section form-row" wx:if="{{form.type === 'sell'}}">
+      <text class="form-label">原价（选填）</text>
+      <input
+        class="form-input form-input--small"
+        type="digit"
+        placeholder="¥0.00"
+        value="{{form.originalPrice}}"
+        data-field="originalPrice"
+        bindinput="onInput"
+      />
+    </view>
+
+    <view class="form-section form-row" wx:if="{{showCondition}}">
+      <text class="form-label">成色</text>
+      <picker mode="selector" range="{{CONDITIONS}}" range-key="name" value="{{conditionIndex}}" bindchange="onConditionChange">
+        <view class="picker-value">
+          {{conditionIndex > -1 ? CONDITIONS[conditionIndex].name : '请选择'}}
+          <text class="picker-arrow"></text>
+        </view>
+      </picker>
+    </view>
+
+    <view class="form-section form-row">
+      <text class="form-label">校区</text>
+      <picker mode="selector" range="{{CAMPUSES}}" bindchange="onCampusChange">
+        <view class="picker-value">
+          {{form.campus || '请选择'}}
+          <text class="picker-arrow"></text>
+        </view>
+      </picker>
+    </view>
+
+    <view class="form-section form-row">
+      <text class="form-label">交易地点</text>
+      <input
+        class="form-input form-input--small"
+        placeholder="例如：紫荆3号楼"
+        value="{{form.location}}"
+        data-field="location"
+        bindinput="onInput"
+      />
+    </view>
+
+    <view class="form-section">
+      <view class="section-label">图片</view>
+      <media-uploader
+        files="{{mediaFiles}}"
+        max-count="9"
+        bindchange="onMediaChange"
+      />
+    </view>
+  </view>
+
+  <view class="submit-section">
+    <view
+      class="btn btn-primary {{submitting ? 'is-disabled' : ''}}"
+      bindtap="submit"
+    >
+      {{submitting ? '保存中...' : '保存修改'}}
+    </view>
+  </view>
+
+  <toast id="toast" />
+</view>

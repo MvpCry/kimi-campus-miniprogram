@@ -1,0 +1,8 @@
+[
+  { "date": "2026-07-03", "postCount": 28, "activeUserCount": 86, "popularCategory": "books" },
+  { "date": "2026-07-04", "postCount": 35, "activeUserCount": 92, "popularCategory": "digital" },
+  { "date": "2026-07-05", "postCount": 42, "activeUserCount": 105, "popularCategory": "exam" },
+  { "date": "2026-07-06", "postCount": 31, "activeUserCount": 98, "popularCategory": "digital" },
+  { "date": "2026-07-07", "postCount": 38, "activeUserCount": 112, "popularCategory": "ebike" },
+  { "date": "2026-07-08", "postCount": 25, "activeUserCount": 78, "popularCategory": "dorm" }
+]

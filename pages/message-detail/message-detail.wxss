@@ -1,0 +1,139 @@
+.message-detail-page {
+  display: flex;
+  flex-direction: column;
+  height: 100vh;
+  padding-bottom: env(safe-area-inset-bottom);
+}
+
+.post-summary {
+  display: flex;
+  align-items: center;
+  gap: var(--space-md);
+  padding: var(--space-md);
+  background: #FFFFFF;
+  border-bottom: 2rpx solid var(--color-border);
+}
+
+.post-thumb {
+  width: 100rpx;
+  height: 100rpx;
+  border-radius: var(--radius-sm);
+  background: var(--color-muted);
+  flex-shrink: 0;
+}
+
+.post-summary__info {
+  flex: 1;
+  min-width: 0;
+}
+
+.post-summary__title {
+  font-size: 28rpx;
+  color: #1F2937;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  margin-bottom: var(--space-sm);
+}
+
+.post-summary__price {
+  font-size: 28rpx;
+  font-weight: 700;
+  color: var(--color-destructive);
+}
+
+.message-list {
+  flex: 1;
+  padding: var(--space-md);
+  overflow: hidden;
+}
+
+.message-item {
+  display: flex;
+  align-items: flex-start;
+  gap: var(--space-md);
+  margin-bottom: var(--space-lg);
+}
+
+.message-item--self {
+  flex-direction: row-reverse;
+}
+
+.message-avatar {
+  width: 72rpx;
+  height: 72rpx;
+  flex-shrink: 0;
+}
+
+.message-bubble {
+  max-width: 70%;
+  padding: var(--space-md);
+  border-radius: var(--radius-md);
+  background: #FFFFFF;
+}
+
+.message-item--self .message-bubble {
+  background: var(--color-primary);
+}
+
+.message-content {
+  font-size: 28rpx;
+  color: #1F2937;
+  line-height: 1.5;
+  word-break: break-all;
+}
+
+.message-item--self .message-content {
+  color: #FFFFFF;
+}
+
+.message-time {
+  font-size: 20rpx;
+  color: #94A3B8;
+  margin-top: var(--space-sm);
+  text-align: right;
+}
+
+.message-item--self .message-time {
+  color: rgba(255, 255, 255, 0.7);
+}
+
+.input-bar {
+  display: flex;
+  align-items: center;
+  gap: var(--space-md);
+  padding: var(--space-md);
+  background: #FFFFFF;
+  border-top: 2rpx solid var(--color-border);
+}
+
+.message-input {
+  flex: 1;
+  height: 80rpx;
+  padding: 0 var(--space-md);
+  background: var(--color-muted);
+  border-radius: 40rpx;
+  font-size: 28rpx;
+}
+
+.send-btn {
+  height: 72rpx;
+  padding: 0 var(--space-lg);
+  border-radius: 36rpx;
+  background: var(--color-muted);
+  color: #94A3B8;
+  font-size: 28rpx;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-weight: 600;
+}
+
+.send-btn.is-active {
+  background: var(--color-primary);
+  color: #FFFFFF;
+}
+
+.send-btn.is-disabled {
+  opacity: 0.6;
+}
