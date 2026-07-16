@@ -1,26 +1,78 @@
 <view class="page index-page">
+  <!-- 顶部信任标语 -->
+  <view class="top-banner" bindtap="onBannerTap">
+    <view class="banner-main">
+      <text class="banner-title">{{banner.title}}</text>
+      <text class="banner-subtitle">{{banner.subtitle}}</text>
+    </view>
+    <view class="banner-arrow"></view>
+  </view>
+
+  <!-- 搜索栏 -->
   <view class="search-section">
     <search-bar
-      placeholder="搜索物品、教材、电动车..."
+      placeholder="搜索教材、电动车、数码..."
+      show-camera="{{true}}"
+      show-search-btn="{{true}}"
       bindtap="onSearchTap"
       bindfocus="onSearchFocus"
+      bindcamera="onCameraTap"
     />
   </view>
 
+  <!-- 横向分类 Tab -->
+  <view class="filter-tabs">
+    <scroll-view class="filter-scroll" scroll-x="{{true}}" enhanced show-scrollbar="{{false}}">
+      <view
+        class="filter-tab {{activeFilterTab === item.id ? 'is-active' : ''}}"
+        wx:for="{{filterTabs}}"
+        wx:key="id"
+        data-id="{{item.id}}"
+        bindtap="onFilterTabChange"
+      >
+        {{item.name}}
+      </view>
+    </scroll-view>
+  </view>
+
+  <!-- 品类网格 -->
   <view class="category-section">
-    <view class="section-title">分类浏览</view>
     <category-nav
       categories="{{categories}}"
-      theme="card"
+      theme="grid"
+      scrollable="{{true}}"
       bindchange="onCategoryChange"
     />
   </view>
 
-  <view class="post-section">
-    <view class="section-title">最新发布</view>
+  <!-- 运营位卡片 -->
+  <view class="feature-section">
+    <view class="feature-list">
+      <view
+        class="feature-card"
+        wx:for="{{featureCards}}"
+        wx:key="id"
+        data-id="{{item.id}}"
+        bindtap="onFeatureCardTap"
+      >
+        <view class="feature-header">
+          <view class="feature-icon" style="background: {{item.color}}20; color: {{item.color}};">{{item.icon}}</view>
+          <text class="feature-name">{{item.name}}</text>
+        </view>
+        <text class="feature-desc" style="color: {{item.color}};">{{item.desc}}</text>
+      </view>
+    </view>
+  </view>
 
-    <view class="post-list" wx:if="{{posts.length > 0}}">
-      <post-card
+  <!-- 推荐商品 -->
+  <view class="product-section">
+    <view class="section-header">
+      <text class="section-title">推荐二手商品</text>
+      <text class="section-more" bindtap="onSearchTap">查看更多 ></text>
+    </view>
+
+    <view class="product-grid" wx:if="{{posts.length > 0}}">
+      <product-card
         wx:for="{{posts}}"
         wx:key="id"
         post="{{item}}"
@@ -31,7 +83,7 @@
     <empty-state
       wx:else
       icon="search"
-      title="还没有帖子"
+      title="还没有商品"
       description="去做第一个发布的人吧"
     />
 
@@ -42,6 +94,7 @@
     </view>
   </view>
 
+  <!-- 发布按钮 -->
   <view class="fab-create" bindtap="onCreateTap">
     <view class="fab-icon"></view>
   </view>

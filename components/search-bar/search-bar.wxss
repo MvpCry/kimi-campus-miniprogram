@@ -62,6 +62,63 @@
   flex-shrink: 0;
 }
 
+.search-camera {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 64rpx;
+  height: 64rpx;
+  margin-left: var(--space-sm);
+  flex-shrink: 0;
+}
+
+.camera-icon {
+  width: 36rpx;
+  height: 28rpx;
+  border: 4rpx solid #64748B;
+  border-radius: 4rpx;
+  position: relative;
+}
+
+.camera-icon::before {
+  content: '';
+  position: absolute;
+  top: -10rpx;
+  left: 6rpx;
+  width: 16rpx;
+  height: 6rpx;
+  background: #64748B;
+  border-radius: 2rpx 2rpx 0 0;
+}
+
+.camera-icon::after {
+  content: '';
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  width: 12rpx;
+  height: 12rpx;
+  border: 3rpx solid #64748B;
+  border-radius: 50%;
+  transform: translate(-50%, -50%);
+}
+
+.search-btn {
+  flex-shrink: 0;
+  height: 72rpx;
+  line-height: 72rpx;
+  padding: 0 28rpx;
+  background: var(--color-destructive);
+  color: #FFFFFF;
+  font-size: 30rpx;
+  font-weight: 600;
+  border-radius: var(--radius-md);
+}
+
+.search-btn:active {
+  opacity: 0.9;
+}
+
 .search-filter {
   font-size: 28rpx;
   color: var(--color-primary);

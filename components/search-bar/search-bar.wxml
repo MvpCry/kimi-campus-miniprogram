@@ -1,4 +1,4 @@
-<view class="search-bar">
+<view class="search-bar {{showSearchBtn ? 'search-bar--home' : ''}}">
   <view class="search-input-wrap">
     <view class="search-icon"></view>
     <input
@@ -11,9 +11,11 @@
       bindconfirm="onConfirm"
       bindfocus="onFocus"
     />
+    <view class="search-camera" wx:if="{{showCamera}}" bindtap="onCamera">
+      <view class="camera-icon"></view>
+    </view>
     <view class="search-clear" wx:if="{{value}}" bindtap="onClear">×</view>
   </view>
-  <view class="search-filter" wx:if="{{showFilter}}" bindtap="onFilter">
-    筛选
-  </view>
+  <view class="search-btn" wx:if="{{showSearchBtn}}" bindtap="onSearchTap">搜索</view>
+  <view class="search-filter" wx:if="{{showFilter}}" bindtap="onFilter">筛选</view>
 </view>

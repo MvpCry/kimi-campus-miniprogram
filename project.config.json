@@ -41,7 +41,7 @@
     "disableSWC": true
   },
   "compileType": "miniprogram",
-  "libVersion": "3.4.0",
+  "libVersion": "3.16.2",
   "appid": "wx8284bf6dcbe4e5ea",
   "projectname": "kimi%E6%A0%A1%E5%9B%AD",
   "condition": {},

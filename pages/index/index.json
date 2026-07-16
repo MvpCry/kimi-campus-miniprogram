@@ -3,6 +3,7 @@
     "search-bar": "/components/search-bar/search-bar",
     "category-nav": "/components/category-nav/category-nav",
     "post-card": "/components/post-card/post-card",
+    "product-card": "/components/product-card/product-card",
     "empty-state": "/components/empty-state/empty-state",
     "toast": "/components/toast/toast"
   },

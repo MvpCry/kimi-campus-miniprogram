@@ -1,9 +1,12 @@
 [
-  { "id": "digital", "name": "数码电子", "icon": "icon-digital", "sort": 1 },
-  { "id": "books", "name": "书籍教材", "icon": "icon-books", "sort": 2 },
-  { "id": "dorm", "name": "宿舍用品", "icon": "icon-dorm", "sort": 3 },
-  { "id": "beauty", "name": "美妆服饰", "icon": "icon-beauty", "sort": 4 },
-  { "id": "sports", "name": "运动器材", "icon": "icon-sports", "sort": 5 },
-  { "id": "ebike", "name": "电动车", "icon": "icon-ebike", "sort": 6 },
-  { "id": "exam", "name": "考研资料", "icon": "icon-exam", "sort": 7 }
+  { "id": "digital", "name": "数码电子", "icon": "💻", "sort": 1, "badge": "" },
+  { "id": "books", "name": "书籍教材", "icon": "📚", "sort": 2, "badge": "" },
+  { "id": "dorm", "name": "宿舍用品", "icon": "🛏️", "sort": 3, "badge": "" },
+  { "id": "beauty", "name": "美妆服饰", "icon": "💄", "sort": 4, "badge": "" },
+  { "id": "sports", "name": "运动器材", "icon": "🏀", "sort": 5, "badge": "" },
+  { "id": "ebike", "name": "电动车", "icon": "🛵", "sort": 6, "badge": "" },
+  { "id": "exam", "name": "考研资料", "icon": "📝", "sort": 7, "badge": "热" },
+  { "id": "tickets", "name": "票务卡券", "icon": "🎫", "sort": 8, "badge": "" },
+  { "id": "bike", "name": "自行车", "icon": "🚲", "sort": 9, "badge": "" },
+  { "id": "snacks", "name": "零食饮料", "icon": "🍿", "sort": 10, "badge": "新" }
 ]

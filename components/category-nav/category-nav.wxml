@@ -1,5 +1,35 @@
 <view class="category-nav category-nav--{{theme}} {{scrollable ? 'is-scrollable' : ''}}">
+  <!-- 横向双列网格：用于首页品类入口 -->
   <scroll-view
+    wx:if="{{theme === 'grid'}}"
+    class="category-grid-scroll"
+    scroll-x="{{true}}"
+    scroll-with-animation
+    enhanced
+    show-scrollbar="{{false}}"
+  >
+    <view class="category-grid">
+      <view class="category-column" wx:for="{{columns}}" wx:key="index" wx:for-index="colIndex">
+        <view
+          class="category-item {{item.active ? 'is-active' : ''}}"
+          wx:for="{{item}}"
+          wx:key="id"
+          data-index="{{item._index}}"
+          bindtap="onTap"
+        >
+          <view class="category-icon-wrap" wx:if="{{showIcon}}">
+            <view class="category-icon" style="background: {{item.iconBg}}">{{item.iconText}}</view>
+            <view class="category-badge" wx:if="{{item.badge}}">{{item.badge}}</view>
+          </view>
+          <text class="category-name">{{item.name}}</text>
+        </view>
+      </view>
+    </view>
+  </scroll-view>
+
+  <!-- 默认 pill / card 主题 -->
+  <scroll-view
+    wx:else
     class="category-scroll"
     scroll-x="{{scrollable}}"
     scroll-with-animation
